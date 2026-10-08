@@ -1,0 +1,33 @@
+name: PakBlog - Cleanup Report
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '40 5 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Find possible unused and duplicate files
+        run: node scripts/cleanup-report.mjs
+
+      - name: Upload cleanup report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: pakblog-cleanup-report
+          path: reports/cleanup-report.json
+          if-no-files-found: warn
+          retention-days: 30

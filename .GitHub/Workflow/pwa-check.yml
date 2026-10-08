@@ -1,0 +1,37 @@
+name: PakBlog - PWA Checker
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '50 4 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  pwa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Check PWA files
+        run: node scripts/check-pwa.mjs
+
+      - name: Upload PWA report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: pakblog-pwa-report
+          path: reports/pwa-report.json
+          if-no-files-found: warn
+          retention-days: 30

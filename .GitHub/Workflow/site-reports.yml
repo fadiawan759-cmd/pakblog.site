@@ -1,0 +1,35 @@
+name: PakBlog - Automatic Site Reports
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '35 2 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Generate site statistics and indexing helper
+        env:
+          PAKBLOG_BASE_URL: https://pakblog.site
+        run: node scripts/site-report.mjs
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v7
+        with:
+          name: pakblog-site-report
+          path: reports/
+          if-no-files-found: warn
+          retention-days: 30

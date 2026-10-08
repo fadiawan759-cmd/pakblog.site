@@ -1,0 +1,30 @@
+name: PakBlog - Automatic ZIP Backup
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 3 * * 0'
+
+permissions:
+  contents: read
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Create backup ZIP
+        run: |
+          mkdir -p backup
+          git archive --format=zip --output="backup/pakblog-${GITHUB_SHA::8}.zip" HEAD
+
+      - name: Upload backup
+        uses: actions/upload-artifact@v7
+        with:
+          name: pakblog-source-backup-${{ github.sha }}
+          path: backup/*.zip
+          retention-days: 90

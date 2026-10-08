@@ -1,0 +1,48 @@
+name: Pakblog Public Site - Health SEO Safety
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: pakblog-public-site-health
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Dependency safety check
+        shell: bash
+        run: |
+          if [ -f package-lock.json ]; then
+            npm install --ignore-scripts
+            npm audit --omit=dev --audit-level=high || true
+          else
+            echo "No package-lock.json; dependency audit skipped."
+          fi
+      - name: Audit live Pakblog
+        env:
+          PAKBLOG_BASE_URL: https://pakblog.site
+          PAKBLOG_MAX_LINKS: '40'
+          PAKBLOG_TIMEOUT_MS: '15000'
+        run: node scripts/site-audit.mjs
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: pakblog-public-site-audit
+          path: reports/
+          if-no-files-found: warn
+          retention-days: 14

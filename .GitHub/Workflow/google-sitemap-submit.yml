@@ -1,0 +1,22 @@
+name: Daily Google Sitemap Submission
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 2 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  submit-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Submit sitemap to Google Search Console
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          PAKBLOG_BASE_URL: https://pakblog.site
+          PAKBLOG_SEARCH_CONSOLE_PROPERTY: https://pakblog.site/
+        run: node scripts/google-sitemap-submit.mjs

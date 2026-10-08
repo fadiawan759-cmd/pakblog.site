@@ -1,0 +1,14 @@
+PAKBLOG 8.0 — FINAL LOCK
+
+This is the final public deployment package based on 7.2.
+
+Additional repairs in 8.0:
+- /sitemap.xml always returns valid XML with HTTP 200, including a Firebase-outage fallback.
+- /rss.xml always returns valid RSS XML with HTTP 200, including a Firebase-outage fallback.
+- Removed unused public-browser Firestore access from app.js; public rendering uses the Netlify API/server functions.
+- Bumped frontend asset version to v80.
+- Preserved the unified 7.x newsroom header, logo, mobile drawer, search fallback, category fallback, article rendering, FAQ/share/SEO, and no-store live routes.
+- No Firestore data is modified by this package.
+
+DEPLOY ONLY THE CONTENTS OF THIS ZIP TO THE NETLIFY SITE SERVING pakblog.site.
+Do not combine it with an older Pakblog ZIP.

@@ -1,0 +1,11 @@
+Pakblog 4.1 HTML Article Support
+
+This is the Pakblog 4.0 site package patched to support the Admin 2.0 optional HTML article upload.
+
+1. Deploy the website package to the same Netlify site.
+2. Set Netlify environment variable FIREBASE_SERVICE_ACCOUNT_JSON to your Firebase service account JSON. Never put this JSON in frontend files.
+3. If needed, set FIREBASE_STORAGE_BUCKET to the actual Firebase Storage bucket name.
+4. Apply storage.rules to Firebase Storage. Review it against your existing rules before replacing them.
+5. Deploy the Admin 2.0 package separately. It uploads .html/.htm files to Firebase Storage under articles-html/{articleId}/{slug}.html.
+6. The public /news/:slug builder checks htmlFilePath and uses the uploaded HTML body when available. If it cannot load the file, it falls back to the normal Firestore content field.
+7. Uploaded HTML is sanitized server-side before it is rendered publicly.

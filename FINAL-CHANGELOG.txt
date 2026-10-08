@@ -1,0 +1,19 @@
+PAKBLOG FINAL 5.1
+
+Production public-site package.
+
+Key repairs:
+- Restored professional editorial/newsroom layout.
+- Added real mobile navigation drawer markup to server-rendered pages.
+- Fixed hamburger JS null-safety and accessibility state.
+- Removed public homepage dependence on browser Firestore fallback.
+- Hardened category function against missing/invalid URL data.
+- Added article slug fallback resolution and published-status protection.
+- Prevented stale browser/service-worker caching of live newsroom/API routes.
+- Hardened search API URL parsing.
+- Added article copy-link action.
+- Preserved Firebase Admin + uploaded HTML article support.
+- Preserved sitemap, RSS, search and legal routes.
+- Cache version bumped to v52.
+
+No Firebase article data is deleted or migrated by this package.

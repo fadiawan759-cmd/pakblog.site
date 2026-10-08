@@ -1,0 +1,30 @@
+PAKBLOG 5.0 — Dynamic News/CMS System
+
+This package changes the public site to a server-rendered newsroom architecture:
+
+Admin -> Firebase -> Netlify server functions -> public article/category/home pages.
+
+Routes:
+- /                 server-rendered homepage
+- /news/:slug       server-rendered article page
+- /category/:category server-rendered category page
+- /search           search UI using /api/search
+- /sitemap.xml      generated from published Firebase articles
+- /rss.xml          generated from published Firebase articles
+- /api/health       Firebase connectivity health check
+- /api/home         JSON latest published stories
+- /api/search       JSON search results
+
+The public frontend no longer needs public Firestore read rules for homepage/category/search.
+The Netlify environment variable FIREBASE_SERVICE_ACCOUNT_JSON (or GOOGLE_SERVICE_ACCOUNT_JSON)
+is required for server-side Firebase access.
+
+Do NOT put the Firebase service-account JSON into config.js or frontend JavaScript.
+
+Publishing workflow:
+1. Publish from the existing admin.
+2. Article is saved in Firebase.
+3. Homepage/category/article/sitemap/RSS read the published record automatically.
+4. The article URL is /news/<slug>.
+
+Existing Firebase article documents are preserved; no migration is performed by this package.

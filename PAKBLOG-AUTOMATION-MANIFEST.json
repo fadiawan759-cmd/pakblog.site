@@ -1,0 +1,9 @@
+{
+  "name": "Pakblog Public Site Automation Pack",
+  "version": "1.0.0",
+  "target": "pakblog.site public repository",
+  "draft_only": true,
+  "firebase_write": false,
+  "admin_write": false,
+  "schedule": "17 */6 * * *"
+}

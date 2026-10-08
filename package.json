@@ -1,0 +1,11 @@
+{
+  "name": "pakblog",
+  "version": "9.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.5.0"
+  }
+}

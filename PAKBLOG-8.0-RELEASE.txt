@@ -1,0 +1,19 @@
+PAKBLOG 8.0 — PREMIUM EDITORIAL + ENGAGEMENT UPGRADE
+
+Preserves Firebase/admin architecture and the current Pakblog logo.
+
+Public upgrades:
+- Adaptive homepage: no empty Latest/More News blocks when article count is low.
+- Trending Now module with view-aware ranking when view data exists, otherwise recency.
+- Optional Breaking ticker driven by article breaking/isBreaking/priority fields.
+- Optional Editor’s Picks driven by featured/editorPick/editorsPick fields.
+- Premium scroll/reveal/card/image motion with reduced-motion support.
+- Mobile sticky share bar on article pages.
+- Reading progress bar retained.
+- Legacy full-document HTML article uploads are normalized into the current article shell; document chrome is stripped and body H1s are converted to H2s.
+- Current article title is not repeated inside normalized legacy content.
+- Legal/static pages use the same current shell/assets.
+- No public 0-view leaderboard when no meaningful view data exists.
+- Uses cache-busting v80 assets.
+
+Important: this ZIP is package-verified only. It has not been deployed to Netlify by this build step.

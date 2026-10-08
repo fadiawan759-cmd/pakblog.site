@@ -1,0 +1,6 @@
+Pakblog 7.1 Final Repair
+- Fixed literal JavaScript/template expression leaking into /search drawer.
+- Added a dedicated light-on-dark Pakblog logo for dark header, drawer and footer.
+- Unified logo rendering so the old/black-on-dark logo no longer disappears.
+- Kept the editorial newsroom layout, responsive navigation, search, categories and article FAQ support.
+- No database records modified by this package.

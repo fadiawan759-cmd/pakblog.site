@@ -1,0 +1,5 @@
+Pakblog 5.0.5 — Category route fix
+
+Fixes Netlify category-page Invalid URL crashes when event.rawUrl is a relative/missing URL.
+Also hardens article/share route URL parsing and uses route params when available.
+No Firebase data is changed.

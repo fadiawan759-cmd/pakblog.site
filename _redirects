@@ -1,0 +1,29 @@
+# Server-rendered newsroom routes
+/ /.netlify/functions/home-page 200
+/latest /.netlify/functions/latest 200
+/category/:category /.netlify/functions/category-page?category=:category 200
+/news/:slug /.netlify/functions/article?slug=:slug 200!
+/sitemap.xml /.netlify/functions/sitemap 200!
+/rss.xml /.netlify/functions/rss 200!
+
+/news-sitemap.xml /.netlify/functions/news-sitemap 200!
+
+# Public APIs
+/api/home /.netlify/functions/home 200
+/api/search /.netlify/functions/search 200
+/api/share /.netlify/functions/share 200
+/api/health /.netlify/functions/health 200
+
+# Clean static pages
+/about /about.html 200
+/privacy /privacy.html 200
+/terms /terms.html 200
+/disclaimer /disclaimer.html 200
+/dmca /dmca.html 200
+/cookie-policy /cookie-policy.html 200
+/search /search.html 200
+/contact /contact.html 200
+
+# Legacy root-level article links -> new /news/ URLs.
+# Keep this catch-all LAST so it cannot capture real site pages/assets.
+/:slug /news/:slug 301

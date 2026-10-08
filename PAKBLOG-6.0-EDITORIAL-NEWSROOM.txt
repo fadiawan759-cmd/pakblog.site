@@ -1,0 +1,26 @@
+PAKBLOG 6.0 — EDITORIAL NEWSROOM
+
+This release is a visual redesign of the public Pakblog site only.
+
+Design direction:
+- Clean international-newsroom editorial hierarchy
+- Pakblog red/black/white identity
+- Controlled lead headline typography; no oversized text covering the image
+- Desktop lead story with image + text column
+- Secondary lead stories
+- Latest stories grid
+- More News numbered list
+- Topic navigation
+- Cleaner mobile layout
+- Responsive typography and spacing
+- Reduced visual effects; content-first presentation
+
+Preserved:
+- Existing Firebase/Netlify article backend
+- Existing article URLs
+- Existing admin system
+- Existing categories
+- Existing article data fields
+- Existing search/article/category functions
+
+No database records are modified by this package.

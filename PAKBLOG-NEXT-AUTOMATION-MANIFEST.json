@@ -1,0 +1,7 @@
+{
+  "name": "Pakblog Next Public Automation",
+  "version": "1.0",
+  "requires_secrets": false,
+  "writes_to_firebase": false,
+  "publishes_content": false
+}

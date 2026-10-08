@@ -1,0 +1,34 @@
+PAKBLOG 7.2 — FINAL SAFE DEPLOYMENT
+
+This package is the public-site stabilization build.
+
+Fixed in this build:
+1. Global new Pakblog logo visibility in light mode, dark mode, header, drawer and footer.
+2. Removed the old giant PAKBLOG placeholder artwork.
+3. Search no longer depends exclusively on /api/search; it falls back to the working /api/home feed.
+4. Category pages also fall back to /api/home if search API is temporarily unavailable.
+5. Search API accepts both Netlify event URL/query formats.
+6. Core assets bumped to v72.
+7. Old service-worker caches are cleared/unregistered on page load; the shipped worker is a one-time cleanup worker.
+8. Added clean /contact page so the drawer has no dead contact link.
+9. Replaced the legacy 404 page with the current newsroom design.
+10. FAQ rendering and FAQ structured data remain enabled on article pages.
+11. Article sharing controls remain accessible and responsive.
+12. Secure Firestore and Storage rules are included as reference files; they are NOT silently deployed by Netlify.
+13. Public client no longer needs direct Firestore access for normal home/search/category rendering.
+
+DEPLOYMENT
+- Deploy the contents of this ZIP to the Netlify site that serves pakblog.site.
+- Do not deploy an older Pakblog ZIP afterward.
+- After deployment, open the site in a private/incognito tab and test:
+  / 
+  /search?q=US
+  /latest
+  /category/technology
+  /about
+  one /news/<published-slug> article
+- If an old screen remains, hard refresh once; the new app also unregisters the previous Pakblog service worker and clears its cache.
+
+IMPORTANT
+- This package does not delete, migrate, or modify Firestore article data.
+- The secure rules in firestore.rules and storage.rules must be reviewed before publishing them in Firebase. Make sure the admin email is present in settings/admins before publishing those rules.

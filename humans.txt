@@ -1,0 +1,5 @@
+# humans.txt
+Team:
+    Founder: Fawad Ahmad
+    Contact: fadiawan757@gmail.com
+    Site: https://pakblog.site

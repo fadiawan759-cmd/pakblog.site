@@ -1,0 +1,5 @@
+PAKBLOG 7.2 FINAL SAFE DEPLOY
+
+Public newsroom stabilization build.
+Logo, search, category fallback, stale-cache cleanup, placeholder, 404/contact, responsive editorial UI, FAQ rendering, and security-rule references repaired.
+No Firestore article data is modified by this package.

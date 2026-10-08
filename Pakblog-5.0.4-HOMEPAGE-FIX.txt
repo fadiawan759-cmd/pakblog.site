@@ -1,0 +1,10 @@
+PAKBLOG 5.0.4 — HOMEPAGE VISUAL FIX
+
+This build keeps the working Firebase/Netlify server-rendered news system and fixes the homepage presentation:
+- Broken/missing article images no longer fall back to the Pakblog logo, which previously made the logo appear huge inside the hero.
+- Added a dedicated news-placeholder.svg for missing images.
+- Expanded image field compatibility (imageURL, imageUrl, heroImage, heroImageUrl, featuredImage, coverImage, thumbnail, image, photoUrl).
+- Reduced mobile hero title sizing/spacing so long headlines do not overpower the layout.
+
+The Firebase service-account environment variable remains required in Netlify:
+FIREBASE_SERVICE_ACCOUNT_JSON

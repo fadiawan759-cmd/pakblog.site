@@ -1,0 +1,17 @@
+PAKBLOG 8.0 — DEPLOY CHECKLIST
+
+1. Upload the contents of this ZIP to the Netlify site serving pakblog.site.
+2. Ensure Netlify environment variable FIREBASE_SERVICE_ACCOUNT_JSON is present for the public server functions.
+3. Deploy.
+4. Test in a private/incognito tab:
+   /
+   /search?q=US
+   /latest
+   /category/technology
+   /sitemap.xml
+   /rss.xml
+   /about
+   /news/<one-published-slug>
+5. In Google Search Console, open the submitted sitemap and use REQUEST AGAIN after the new deployment is live.
+
+The sitemap fallback means Google can still read the XML even during a temporary Firebase outage; when Firebase is available, published article URLs are included automatically.

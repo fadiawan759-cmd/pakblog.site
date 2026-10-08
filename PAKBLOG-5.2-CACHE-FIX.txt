@@ -1,0 +1,18 @@
+PAKBLOG 5.2 — ARTICLE CACHE / SECURITY-TEST CLEANUP
+
+This release changes article delivery to a normal Netlify Function routed through _redirects instead of a dynamic function path.
+
+Key changes:
+- /news/:slug now routes to /.netlify/functions/article?slug=:slug with a forced 200 rewrite.
+- Article responses use no-store/no-cache headers.
+- The article function accepts the slug from query parameters and still validates the current Firestore document/status.
+- A missing or unpublished slug returns a real 404.
+- Static asset/service-worker cache version bumped to v52.
+- No Firestore data is changed by this package.
+
+Important:
+- Deploy this version as a fresh production deploy.
+- Do not delete legitimate Firestore articles to remove the old security-test page.
+- After deploy, test /news/security-test and a random nonexistent slug.
+- If the old security-test page remains after a fresh deploy, purge the Netlify CDN cache; the package cannot purge an account-level CDN cache without your Netlify credentials.
+- Firestore rules currently shown in the user's console still allow public writes. Lock those rules only after confirming the admin account is authorized under the replacement rules.

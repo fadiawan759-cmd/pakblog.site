@@ -1,0 +1,28 @@
+PAKBLOG 9.0 — SEO + AI DISCOVERY + NEW NEWSROOM INTERFACE
+
+Public/interface
+- Rebuilt the public visual system with a responsive editorial/newsroom interface.
+- Preserves the existing Pakblog logo, Firebase publishing architecture and clean /news/{slug} URLs.
+- Improved mobile navigation, cards, typography, topic navigation, article layout, dark mode and sharing.
+- Added stronger visual hierarchy and internal linking across homepage, categories and articles.
+
+Google/SEO
+- Forced Netlify rewrites for dynamic sitemap.xml and rss.xml so static files cannot shadow the server-generated versions.
+- Dynamic XML sitemap now includes every published article URL returned by Firestore plus lastmod dates.
+- Added /news-sitemap.xml for recent published stories using Google's News sitemap format.
+- Added index/follow robots directives and large-image/snippet directives.
+- Added richer NewsArticle, BreadcrumbList, WebSite and NewsMediaOrganization structured data.
+- Added publication/update dates, author, category, tags and word count to article schema where available.
+- Added RSS discovery link and stronger canonical metadata.
+- Added explicit internal links to latest/category/search/RSS resources.
+- Added crawler directives for Googlebot, Bingbot, OAI-SearchBot, GPTBot, ClaudeBot, PerplexityBot and Google-Extended.
+- Expanded llms.txt with canonical site resources and content guidance.
+
+Analytics
+- Activated the existing GA4 measurement ID G-XZ3MC3S9KS on server-rendered and static public pages.
+- Article pages continue to expose the normal page_view measurement; the existing measurement ID is now actually loaded.
+
+Important
+- SEO changes improve crawlability and machine understanding but cannot guarantee Google rankings, Google AI Overviews, ChatGPT/other AI citations, or traffic.
+- After deployment, submit/refresh https://pakblog.site/sitemap.xml and https://pakblog.site/news-sitemap.xml in Google Search Console and inspect representative article URLs.
+- Analytics will only show visits after the upgraded version is deployed.

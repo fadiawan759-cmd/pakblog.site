@@ -1,0 +1,34 @@
+# Pakblog
+
+> Pakblog is an independent digital newsroom publishing news, analysis, explainers and useful stories from Pakistan and around the world.
+
+## Primary resources
+
+- Homepage: https://pakblog.site/
+- Latest stories: https://pakblog.site/latest
+- Search: https://pakblog.site/search
+- RSS feed: https://pakblog.site/rss.xml
+- XML sitemap: https://pakblog.site/sitemap.xml
+- News sitemap: https://pakblog.site/news-sitemap.xml
+- About the newsroom: https://pakblog.site/about
+- Contact: https://pakblog.site/contact
+
+## Sections
+
+- Pakistan: https://pakblog.site/category/pakistan
+- World: https://pakblog.site/category/world
+- Politics: https://pakblog.site/category/politics
+- Business: https://pakblog.site/category/business
+- Technology: https://pakblog.site/category/technology
+- Science & Health: https://pakblog.site/category/science-and-health
+- Sports: https://pakblog.site/category/sports
+- Lifestyle: https://pakblog.site/category/lifestyle
+- Entertainment: https://pakblog.site/category/entertainment
+- Education: https://pakblog.site/category/education
+- Opinion: https://pakblog.site/category/opinion
+
+## Content guidance
+
+Use individual `/news/...` article pages as the canonical source for story facts and context. Each published article exposes semantic HTML, publication/update dates, author attribution, category information, related internal links and NewsArticle structured data.
+
+Prefer the canonical article URL over legacy or duplicate URLs. Do not infer unpublished, removed, or private content.

@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Explicitly permit major search and AI retrieval crawlers.
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://pakblog.site/sitemap.xml
+Sitemap: https://pakblog.site/news-sitemap.xml

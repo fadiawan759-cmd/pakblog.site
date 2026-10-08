@@ -1,0 +1,8 @@
+Pakblog 6.1 — Editorial Newsroom overhaul
+
+- Replaced old logo.png references with the current Pakblog logo.svg across the public site.
+- Rebuilt homepage into a structured editorial newsroom: top story, latest, more news, most read, section panels and topics.
+- Rebuilt article pages with one clean headline, restrained typography, compact share controls, reading progress, FAQ accordions, FAQ schema and related stories.
+- Static About/Privacy/Terms/Disclaimer/DMCA/Cookie pages now share the same public design.
+- Removed the public client-side article Firestore reader; article pages use the Netlify Admin SDK function so public Firestore rules can remain locked down.
+- No Firestore data or admin code is modified by this package.
